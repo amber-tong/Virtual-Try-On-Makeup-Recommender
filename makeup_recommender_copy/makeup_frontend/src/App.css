@@ -1,0 +1,170 @@
+.App {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.App-header {
+  background-color: #f8f0fb; /* Light purple background */
+  color: #333; /* Darker text for contrast */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="text"] {
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 800px; /* Ensure this matches the ul width if including border/padding */
+  border-radius: 20px; /* Rounded borders */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #4A90E2;
+}
+
+/* Dropdown list styling */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 0;
+  background-color: white;
+  color: black;
+  position: absolute;
+  width: 820px; /* Match the width of the input fields */
+  max-height: 200px; /* Limit the size of the dropdown */
+  overflow-y: auto; /* Enable scrolling on the dropdown */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Optional: Add shadow for better visibility */
+  z-index: 1000; /* Ensure the dropdown is on top */
+  border: 2px solid #ddd; /* Match input field border */
+  border-top: none; /* Remove top border for seamless integration */
+}
+
+li {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+li:hover {
+  background-color: #f5f5f5;
+}
+
+/* Reset the display property for shades dropdown */
+ul#shades-dropdown {
+  display: block; /* Make sure it is not set to 'none' */
+}
+
+/* Styling for the Recommendations Component */
+.recommendations {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  align-items: start;
+  max-width: 900px; /* Set a max-width to constrain the grid width */
+  margin: 0 auto; /* This will center the grid in the middle of the page */
+}
+
+.recommendation-item {
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 250px; /* Adjust width as needed */
+  text-align: left;
+  background-color: #f9f9f9; /* Light background for each item */
+  align-items: center; /* Center items horizontally */
+  width: 250px; /* Fixed width for all cards */
+  height: 420px; /* Fixed height for all cards */
+}
+
+.recommendation-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.recommendation-item h3 {
+  color: #333; /* Darker text for the product name */
+}
+
+.recommendation-item p {
+  color: #666; /* Lighter text for product details */
+}
+
+/* Ensure responsive design */
+@media (max-width: 768px) {
+  .recommendation-item {
+    width: 100%; /* Full width on smaller screens */
+  }
+}
+
+.product-card img {
+  width: 100px; /* or any other size */
+  height: auto;
+  /* ... other styles ... */
+}
+
+.selected-product-image {
+  width: 100px; 
+  height: auto;
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 50px;
+  justify-content: center; /* This will center the cards in the grid if there is extra space */
+  
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content inside each card */
+  justify-content: space-between; /* Distribute space evenly */
+  height: 100%; /* Make all cards the same height */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.product-image {
+  width: 100%; /* Make image take full width of the card */
+  object-fit: contain; /* Keep the aspect ratio of the image */
+}
+
+.selected-product-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  width: fit-content; /* Adjust width to content */
+  background-color: #fff; /* White background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.selected-product-container img {
+  width: 100px; /* Adjust as needed */
+  height: auto;
+  margin-bottom: 10px; /* Space between image and text */
+}
+
+.selected-product-details {
+  text-align: center;
+}
+
+.selected-product-container img {
+  width: 250px; /* Increase the width as needed */
+  height: auto; /* Height is auto to maintain aspect ratio */
+  margin-bottom: 10px; /* Space between image and text */
+}
