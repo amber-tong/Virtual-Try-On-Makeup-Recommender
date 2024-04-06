@@ -11,6 +11,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  max-width: 100%; /* Or any maximum width you prefer */
+  width: 100%; /* Ensures that the App-header takes up the full width */
 }
 
 input[type="text"] {
@@ -63,48 +65,73 @@ ul#shades-dropdown {
 
 /* Styling for the Recommendations Component */
 .recommendations {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  display: flex; /* Use flexbox instead of grid */
+  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  gap: 20px; /* Spacing between items */
+  justify-content: center; /* Centers items horizontally when there is extra space */
+  align-items: flex-start; /* Aligns items to the start of the cross axis */
+  padding: 20px;
+}
+
+.recommendations {
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  align-items: start;
-  max-width: 900px; /* Set a max-width to constrain the grid width */
-  margin: 0 auto; /* This will center the grid in the middle of the page */
+  align-items: flex-start;
+  padding: 20px;
+  box-sizing: border-box; /* This ensures padding is included in the width */
 }
 
 .recommendation-item {
-  margin: 10px;
-  padding: 15px;
+  flex: 0 1 calc(33.333% - 40px); /* Subtracted twice the gap for two items on each side */
+  box-sizing: border-box; /* This ensures padding and border are included in the width and height */
+  min-height: 400px; /* Set to the height of the tallest card */
   border: 1px solid #ddd;
   border-radius: 8px;
-  width: 250px; /* Adjust width as needed */
-  text-align: left;
-  background-color: #f9f9f9; /* Light background for each item */
-  align-items: center; /* Center items horizontally */
-  width: 250px; /* Fixed width for all cards */
-  height: 420px; /* Fixed height for all cards */
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 0; /* Ensure there are no extra margins */
+  align-items: center;
+  justify-content: flex-start; /* Align items to the start of the container */
 }
 
-.recommendation-item img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 4px;
+.product-image {
+  width: auto; /* Adjust width as needed, could be 100% or a fixed value in px */
+  height: auto; /* Maintain the aspect ratio */
+  margin-bottom: 15px; /* Adjust this value to control space between image and text */
 }
 
-.recommendation-item h3 {
-  color: #333; /* Darker text for the product name */
+.product-info {
+  width: 100%; /* Ensure the text container takes up full width of the card */
+  display: flex;
+  flex-direction: column;
+  text-align: left; /* Aligns text to the left */
+  align-items: flex-start; /* Aligns flex children (the text) to the start (left) */
+  justify-content: center;
+  /* Remove any additional padding or margin that might be adding extra space */
 }
 
-.recommendation-item p {
-  color: #666; /* Lighter text for product details */
+/* Make sure that no extra margins are added to headings, paragraphs, etc., within .product-info */
+.product-info h4, .product-info p {
+  margin: 5px 0; /* Example margin, adjust as needed */
 }
 
-/* Ensure responsive design */
 @media (max-width: 768px) {
   .recommendation-item {
-    width: 100%; /* Full width on smaller screens */
+    flex: 0 1 calc(50% - 40px); /* Adjust for two items per row with the gap */
   }
 }
+
+@media (max-width: 480px) {
+  .recommendation-item {
+    flex: 0 1 100%; /* Full width for smaller screens */
+  }
+}
+
 
 .product-card img {
   width: 100px; /* or any other size */

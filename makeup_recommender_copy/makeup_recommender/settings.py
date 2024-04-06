@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'makeup_api',
     'corsheaders',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -125,6 +126,10 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
+# Add this line to define where static files will be collected to.
+# This path should be an empty directory that's not used by any other part of your application.
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -138,7 +143,3 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # React's default port if served locally
     "https://yourfrontenddomain.com",
 ]
-
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -14,18 +14,20 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
-from django.urls import path, re_path, include
-from makeup_api.views import index
+from django.urls import path, include
+from makeup_api.views import index, ProductDetailView # Ensure that 'index' view is properly imported
 
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('makeup_api.urls')),  # Add this line
-    
-]
+    path('api/', include('makeup_api.urls')),
+    path('', index, name='index'),  # Serve the 'index' view at the root URL
+    path('api/products/<int:product_id>/', ProductDetailView.as_view(), name='product-detail'),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
