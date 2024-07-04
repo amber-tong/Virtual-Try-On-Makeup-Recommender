@@ -1,0 +1,308 @@
+.App {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.App-header {
+  background-color: #f8f0fb; 
+  color: #333; 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%; 
+  width: 100%; 
+}
+
+input[type="text"] {
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 800px;
+  border-radius: 20px; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #4A90E2;
+}
+
+/* Dropdown list styling */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 0;
+  background-color: white;
+  color: black;
+  position: absolute;
+  width: 820px; 
+  max-height: 200px; 
+  overflow-y: auto; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); 
+  z-index: 1000; 
+  border: 2px solid #ddd; 
+  border-top: none;
+}
+
+li {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+li:hover {
+  background-color: #f5f5f5;
+}
+
+/* Reset the display property for shades dropdown */
+ul#shades-dropdown {
+  display: block; 
+}
+
+/* Styling for the Recommendations Component */
+.recommendations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px; 
+  justify-content: center; 
+  align-items: flex-start; 
+  padding: 20px;
+}
+
+.recommendation-item {
+  flex: 0 0 calc(33.333% - 40px);
+  box-sizing: border-box;
+  max-width: 400px; 
+  min-height: 400px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  align-items: center;
+  justify-content: flex-start; 
+}
+
+/* Ensure images in the product cards don't exceed the card size */
+.recommendation-item img {
+  width: 300px; 
+  height: 250px; 
+}
+
+.recommendation-item {
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.recommendation-item:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.selected-product {
+  border: 2px solid #f0f; /* Highlight color when a product is selected */
+}
+
+.product-image {
+  width: auto;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.product-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* Make sure that no extra margins are added to headings, paragraphs, etc., within .product-info */
+.product-info h4, .product-info p {
+  margin: 5px 0; 
+}
+
+@media (max-width: 768px) {
+  .recommendation-item {
+    flex: 0 1 calc(50% - 40px); 
+  }
+}
+
+@media (max-width: 480px) {
+  .recommendation-item {
+    flex: 0 1 100%; 
+  }
+}
+
+
+.product-card img {
+  width: 100px;
+  height: auto;
+}
+
+.selected-product-image {
+  width: 100px; 
+  height: auto;
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 50px;
+  justify-content: center; 
+  
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: space-between; 
+  height: 100%;
+  box-sizing: border-box; 
+}
+
+.product-image {
+  width: 100%;
+  object-fit: contain; 
+}
+
+.selected-product-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  width: fit-content; 
+  background-color: #fff; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  cursor: pointer; 
+  transition: box-shadow 0.3s ease; 
+}
+
+/* Add a new class for when the product is selected */
+.selected-product-container.selected {
+  border: 2px solid #f0f; 
+}
+
+/* Add hover effect for the selected product container */
+.selected-product-container:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.selected-product-container img {
+  width: 100px; 
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.selected-product-details {
+  text-align: left;
+}
+
+.selected-product-container img {
+  width: 250px; 
+  height: auto;
+  margin-bottom: 10px;
+}
+
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 640px;
+  height: 480px; 
+  object-fit: cover; 
+  margin: auto; 
+  position: relative; 
+  background-color: #000;
+}
+
+video {
+  height: 100%; 
+  width: 100%;
+  object-fit: cover;
+}
+
+video, canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+svg.makeup-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+ellipse.makeup-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.suggestions-list {
+  text-align: center;
+}
+
+.shade-name {
+  margin-right: 10px; 
+}
+
+.shade-color {
+  display: inline-block;
+  width: 20px; 
+  height: 20px; 
+  border-radius: 50%; 
+  margin-left: 5px; 
+  border: 1px solid #000; 
+  vertical-align: middle; 
+}
+
+.product-name-container {
+  text-align: center;
+  width: 100%; 
+}
+
+.webcam-and-slider-container {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+  width: 640px; 
+  height: auto; 
+  margin: auto; 
+  gap: 20px; 
+}
+
+.opacity-slider-container {
+  width: calc(100% - 40px); 
+  padding: 0 20px; 
+  box-sizing: border-box; 
+}
