@@ -1,18 +1,9 @@
 # Dissertation
-in views.py in mkaeup_api folder change path to correct path for loading ingredient aliases in data folder within the makeup_api folder (line 29)
 
+## Demo Video
+[Watch the Demo Video](https://youtu.be/buJZaLl3Cl4)
 
-if changing database run this
-python manage.py import_products /Users/ambertong/Documents/GitHub/Dissertation/makeup_recommender_copy/Modified_Cosmetic_Brand_Products_Dataset-2.csv
-then run
-python manage.py makemigrations and python manage.py migrate
-
-open makeup_recommender folder in vs code
-run python manage.py runserver in the terminal (make sure you're in makeup_recommender directory)
-open new terminal and go to makeup_frontend directory by typing cd makeup_frontend
-run npm start
-
-# Dissertation
+[![Watch the Demo Video](https://img.youtube.com/vi/buJZaLl3Cl4/maxresdefault.jpg)](https://youtu.be/buJZaLl3Cl4)
 
 ## Overview
 This project is a Django application with a React frontend designed to provide personalized makeup recommendations and virtual try-on experiences. It utilizes machine learning algorithms for product recommendation and real-time facial landmark detection for virtual try-on features.
